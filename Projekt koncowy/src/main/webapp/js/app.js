@@ -1,12 +1,11 @@
 $(function(){
 
-    var buttons = $("#game .buttonInGame");
+    var buttons = $("#game").find(".buttonInGame");
     var pushed = [];
-
-    var trs = $("tr");
 
     var clicks = 0;
     var gameTime = 0;
+
 
     buttons.each(function(index, element){
         pushed.push(true);
@@ -15,6 +14,7 @@ $(function(){
 
     buttons.each(function(index, element){
 
+        var trs = $("tr");
         var tr = trs.eq(index);
         var tds = tr.children();
         var len = tds.length;
@@ -25,18 +25,19 @@ $(function(){
                 changeButton(parseInt(tds.eq(i).text()))
             }
         });
-
-        $(element).click();//klikanie każdego, inaczej kodowanie gry :)
-
-        $(element).on("click", function(){
-            incrementCounter();//zwiększenie licznika i wyświetlenie go na stronie
-            if(checkWinCondition()){
-                redirectGame();//creating form and sending it by post to /game
-            }
-        });
     });
 
-    setInterval(function(){incrementGameTime();}, 1000);
+    buttons.click();//Kodowanie gry
+
+    buttons.click(function(){
+        incrementCounter();
+        if(checkWinCondition()){
+            redirectGame();
+        }
+    });
+
+    setInterval(incrementGameTime, 1000);
+
 
 //Takie tam funkcje
 

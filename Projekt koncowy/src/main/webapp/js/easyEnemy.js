@@ -1,13 +1,11 @@
 $(function(){
 
-    var enemyButtons = $("#enemyGame .buttonInGame");
+    var enemyButtons = $("#enemyGame").find(".buttonInGame");
     var enemyPushed = [];
 
-    var trs = $("tr");
-
     var enemyClicks = 0;
-
     var pseudoClick = [];
+
 
     enemyButtons.each(function(index, element){
         enemyPushed.push(true);
@@ -16,6 +14,7 @@ $(function(){
 
     enemyButtons.each(function(index, element){
 
+        var trs = $("tr");
         var tr = trs.eq(index);
         var tds = tr.children();
         var len = tds.length;
@@ -26,13 +25,14 @@ $(function(){
                 changeEnemyButton(parseInt(tds.eq(i).text()))
             }
         });
-
-        pseudoClick[index]();//klikanie każdego, inaczej kodowanie gry :)
+        pseudoClick[index]();//Kodowanie gry
     });
 
     setInterval(enemyClick, 1000);
 
-    //Takie tam funkcje
+
+//Takie tam funkcje
+
 
     function enemyClick(){
         var rand = parseInt(Math.random() * enemyButtons.length);
@@ -42,6 +42,7 @@ $(function(){
             redirectMain();
         }
     }
+
 
     function changeEnemyButton(index){
         if(enemyPushed[index] === true){
@@ -71,7 +72,7 @@ $(function(){
     function redirectMain(){
         var form = $(
             "<form action='/main' style='display: none;'>" +
-            "<input type='submit' id='goToMain'/>" +
+               "<input type='submit' id='goToMain'/>" +
             "</form>"
         );
         $("body").append(form);
