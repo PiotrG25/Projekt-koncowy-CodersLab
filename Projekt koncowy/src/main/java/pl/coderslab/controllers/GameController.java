@@ -23,6 +23,31 @@ public class GameController {
     @Autowired
     HttpSession session;
 
+
+    @GetMapping("/game")
+    public String getGame(Model model, @RequestParam(required = false) String level){
+        if(session.getAttribute("user") == null){
+            return "redirect:/main";
+        }
+
+        if(level == null || level.isEmpty()){
+            return "redirect:/main";
+        }
+
+        Pattern pattern = Pattern.compile("[1-3]");
+        Matcher matcher = pattern.matcher(level);
+        if(!matcher.matches()){
+            return "redirect:/main";
+        }
+        int levelInt = Integer.parseInt(level);
+
+        session.setAttribute("level", levelInt);
+
+        int [][] tab = RandomMachine.getTab(3 * 3);
+        model.addAttribute("tab", tab);
+        return "game";
+    }
+
     @PostMapping("/game")
     public String postGame(@RequestParam(required = false) String moves, @RequestParam(required = false) String time){
         if(session.getAttribute("user") == null){
@@ -53,29 +78,5 @@ public class GameController {
         gameRepository.save(game);
 
         return "redirect:/main";
-    }
-
-    @GetMapping("/game")
-    public String getGame(Model model, @RequestParam(required = false) String level){
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-
-        if(level == null || level.isEmpty()){
-            return "redirect:/main";
-        }
-
-        Pattern pattern = Pattern.compile("[1-3]");
-        Matcher matcher = pattern.matcher(level);
-        if(!matcher.matches()){
-            return "redirect:/main";
-        }
-        int levelInt = Integer.parseInt(level);
-
-        session.setAttribute("level", levelInt);
-
-        int [][] tab = RandomMachine.getTab(3 * 3);
-        model.addAttribute("tab", tab);
-        return "game";
     }
 }

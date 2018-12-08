@@ -22,6 +22,17 @@ public class RegisterController {
     @Autowired
     HttpSession session;
 
+
+    @GetMapping("/register")
+    public String getRegister(Model model){
+        if(session.getAttribute("user") == null){
+            model.addAttribute("userRegisterDto", new UserRegisterDto());
+            return "register";
+        }else{
+            return "redirect:/main";
+        }
+    }
+
     @PostMapping("/register")
     public String postRegister(@ModelAttribute @Valid UserRegisterDto userRegisterDto, BindingResult result, Model model){
         if(session.getAttribute("user") != null){
@@ -63,14 +74,5 @@ public class RegisterController {
             }
         }
         return "register";
-    }
-    @GetMapping("/register")
-    public String getRegister(Model model){
-        if(session.getAttribute("user") == null){
-            model.addAttribute("userRegisterDto", new UserRegisterDto());
-            return "register";
-        }else{
-            return "redirect:/main";
-        }
     }
 }

@@ -22,6 +22,32 @@ public class UserController {
     @Autowired
     GameService gameService;
 
+
+    @GetMapping("/user")
+    public String getUser(Model model){
+        if(session.getAttribute("user") == null){
+            return "redirect:/main";
+        }
+        long userId = ((User)session.getAttribute("user")).getId();
+
+        Integer winCount = gameService.countAllGamesByUserId(userId);
+        Long movesCount = gameService.countAllMovesByUserId(userId);
+        Long timeCount = gameService.countAllTimeByUserId(userId);
+
+        movesCount = movesCount == null ? 0 : movesCount;
+        timeCount = timeCount == null ? 0 : timeCount;
+
+        model.addAttribute("winCount", winCount);
+        model.addAttribute("movesCount", movesCount);
+        model.addAttribute("timeCount", timeCount);
+
+        model.addAttribute("top10", gameService.load10BestMovesByUserIdOnLevel(userId, 1));
+        model.addAttribute("top10Level", 1);
+        model.addAttribute("greenMoves", true);
+
+        return "user";
+    }
+
     @PostMapping("/user")
     public String postUser(Model model,@RequestParam(required = false) String top10Level,
                            @RequestParam(required = false) String greenRed){
@@ -65,30 +91,5 @@ public class UserController {
 
         model.addAttribute("top10Level", top10Level);
         return null;
-    }
-
-    @GetMapping("/user")
-    public String getUser(Model model){
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-        long userId = ((User)session.getAttribute("user")).getId();
-
-        Integer winCount = gameService.countAllGamesByUserId(userId);
-        Long movesCount = gameService.countAllMovesByUserId(userId);
-        Long timeCount = gameService.countAllTimeByUserId(userId);
-
-        movesCount = movesCount == null ? 0 : movesCount;
-        timeCount = timeCount == null ? 0 : timeCount;
-
-        model.addAttribute("winCount", winCount);
-        model.addAttribute("movesCount", movesCount);
-        model.addAttribute("timeCount", timeCount);
-
-        model.addAttribute("top10", gameService.load10BestMovesByUserIdOnLevel(userId, 1));
-        model.addAttribute("top10Level", 1);
-        model.addAttribute("greenMoves", true);
-
-        return "user";
     }
 }

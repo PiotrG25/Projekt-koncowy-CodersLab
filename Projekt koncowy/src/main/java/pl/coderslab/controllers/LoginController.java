@@ -24,6 +24,23 @@ public class LoginController {
     @Autowired
     HttpSession session;
 
+
+    @RequestMapping("/logout")
+    public String logout(){
+        session.invalidate();
+        return "redirect:/main";
+    }
+
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        if(session.getAttribute("user") == null){
+            model.addAttribute("userLoginDto", new UserLoginDto());
+            return "login";
+        }else{
+            return "redirect:/main";
+        }
+    }
+
     @PostMapping("/login")
     public String postLogin(@ModelAttribute @Valid UserLoginDto userLoginDto, BindingResult result, Model model){
         if(session.getAttribute("user") != null){
@@ -53,21 +70,5 @@ public class LoginController {
             model.addAttribute("success", true);
         }
         return "login";
-    }
-
-    @GetMapping("/login")
-    public String getLogin(Model model){
-        if(session.getAttribute("user") == null){
-            model.addAttribute("userLoginDto", new UserLoginDto());
-            return "login";
-        }else{
-            return "redirect:/main";
-        }
-    }
-
-    @RequestMapping("/logout")
-    public String logout(){
-        session.invalidate();
-        return "redirect:/main";
     }
 }

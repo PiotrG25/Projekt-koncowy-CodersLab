@@ -23,6 +23,16 @@ public class DeleteUserController {
     @Autowired
     HttpSession session;
 
+
+    @GetMapping("/deleteUser")
+    public String getDeleteUser(Model model){
+        if(session.getAttribute("user") == null){
+            return "redirect:/main";
+        }
+        model.addAttribute("userDeleteDto", new UserDeleteDto());
+        return "deleteUser";
+    }
+
     @PostMapping("/deleteUser")
     public String postDeleteUser(@ModelAttribute @Valid UserDeleteDto userDeleteDto, BindingResult result, Model model){
         if(session.getAttribute("user") == null){
@@ -43,14 +53,5 @@ public class DeleteUserController {
         user.setEnabled(false);
         userService.saveToDb(user);
         return "redirect:/logout";
-    }
-
-    @GetMapping("/deleteUser")
-    public String getDeleteUser(Model model){
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-        model.addAttribute("userDeleteDto", new UserDeleteDto());
-        return "deleteUser";
     }
 }

@@ -26,7 +26,8 @@ $(function(){
             }
         });
     });
-    buttons.click();
+
+    buttons.click();//Kodowanie gry
 
     buttons.click(function(){
         incrementCounter();
@@ -35,7 +36,8 @@ $(function(){
         }
     });
 
-    setInterval(function(){incrementGameTime();}, 1000);
+    setInterval(incrementGameTime, 1000);
+
 
 //Takie tam funkcje
 

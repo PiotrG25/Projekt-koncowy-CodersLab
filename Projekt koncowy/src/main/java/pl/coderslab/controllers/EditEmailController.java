@@ -23,6 +23,16 @@ public class EditEmailController {
     @Autowired
     HttpSession session;
 
+
+    @GetMapping("/editEmail")
+    public String getEditEmail(Model model){
+        if(session.getAttribute("user") == null) {
+            return "redirect:/main";
+        }
+        model.addAttribute("userEmailEditDto", new UserEmailEditDto());
+        return "editEmail";
+    }
+
     @PostMapping("/editEmail")
     public String postEditEmail(@ModelAttribute @Valid UserEmailEditDto userEmailEditDto, BindingResult result, Model model){
         if(session.getAttribute("user") == null){
@@ -54,15 +64,6 @@ public class EditEmailController {
         }
 
         model.addAttribute("success", true);
-        return "editEmail";
-    }
-
-    @GetMapping("/editEmail")
-    public String getEditEmail(Model model){
-        if(session.getAttribute("user") == null) {
-            return "redirect:/main";
-        }
-        model.addAttribute("userEmailEditDto", new UserEmailEditDto());
         return "editEmail";
     }
 }

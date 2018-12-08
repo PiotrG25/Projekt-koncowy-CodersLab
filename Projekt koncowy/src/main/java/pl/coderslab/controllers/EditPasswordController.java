@@ -23,6 +23,16 @@ public class EditPasswordController {
     @Autowired
     HttpSession session;
 
+
+    @GetMapping("/editPassword")
+    public String getEditPassword(Model model){
+        if(session.getAttribute("user") == null){
+            return "redirect:/main";
+        }
+        model.addAttribute("userEditPasswordDto", new UserEditPasswordDto());
+        return "editPassword";
+    }
+
     @PostMapping("/editPassword")
     public String postEditPassword(@ModelAttribute @Valid UserEditPasswordDto userEditPasswordDto, BindingResult result, Model model){
         if(session.getAttribute("user") == null){
@@ -53,14 +63,5 @@ public class EditPasswordController {
 
         model.addAttribute("success", true);
         return "redirect:/main";
-    }
-
-    @GetMapping("/editPassword")
-    public String getEditPassword(Model model){
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-        model.addAttribute("userEditPasswordDto", new UserEditPasswordDto());
-        return "editPassword";
     }
 }
