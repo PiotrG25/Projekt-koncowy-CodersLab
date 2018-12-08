@@ -55,6 +55,7 @@ public class UserController {
             return "redirect:/main";
         }
 
+
         if(top10Level == null || top10Level.isEmpty()){
             return "redirect:/user";
         }
@@ -67,6 +68,19 @@ public class UserController {
 
         long userId = ((User)session.getAttribute("user")).getId();
         int levelInt = Integer.parseInt(top10Level);
+
+
+        Integer winCount = gameService.countAllGamesByUserId(userId);
+        Long movesCount = gameService.countAllMovesByUserId(userId);
+        Long timeCount = gameService.countAllTimeByUserId(userId);
+
+        movesCount = movesCount == null ? 0 : movesCount;
+        timeCount = timeCount == null ? 0 : timeCount;
+
+        model.addAttribute("winCount", winCount);
+        model.addAttribute("movesCount", movesCount);
+        model.addAttribute("timeCount", timeCount);
+
 
         switch (greenRed) {
             case "greenMoves":
