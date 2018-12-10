@@ -8,7 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8928d892-21df-4049-ac4f-73d715003e6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ProjektKoncowy-1.0-SNAPSHOT/WEB-INF/classes/pl/coderslab/beans/RandomMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ProjektKoncowy-1.0-SNAPSHOT/WEB-INF/classes/pl/coderslab/beans/RandomMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/beans/RandomMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/beans/RandomMachine.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,7 +128,7 @@
         <counts>
           <entry key="css" value="18" />
           <entry key="html" value="1" />
-          <entry key="java" value="78" />
+          <entry key="java" value="79" />
           <entry key="js" value="11" />
           <entry key="jsp" value="40" />
           <entry key="properties" value="1" />
@@ -137,7 +139,7 @@
         <counts>
           <entry key="CSS" value="18" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="78" />
+          <entry key="JAVA" value="79" />
           <entry key="JSP" value="40" />
           <entry key="JavaScript" value="11" />
           <entry key="Properties" value="1" />
@@ -147,7 +149,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1475" />
-          <entry key="java" value="4469" />
+          <entry key="java" value="5538" />
           <entry key="js" value="2749" />
           <entry key="jsp" value="1713" />
           <entry key="xml" value="4" />
@@ -157,7 +159,7 @@
         <counts>
           <entry key="CSS" value="1475" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="4469" />
+          <entry key="JAVA" value="5538" />
           <entry key="JSP" value="1713" />
           <entry key="JavaScript" value="2744" />
           <entry key="XML" value="4" />
@@ -168,10 +170,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/UserController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="188">
+              <caret line="37" column="34" lean-forward="true" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -230,7 +232,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/header.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/game.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/user.css" />
         <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/services/GameService.java" />
@@ -253,6 +254,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/app/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java" />
       </list>
     </option>
   </component>
@@ -455,7 +457,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544299504576" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544437922358" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -488,10 +490,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Unnamed">
+  <component name="RunManager" selected="Application.RandomMachine">
     <configuration name="RandomMachine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.coderslab.beans.RandomMachine" />
-      <module name="ProjektKoncowy 2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="pl.coderslab.beans.*" />
@@ -660,17 +661,17 @@
       <workItem from="1543074922347" duration="830000" />
       <workItem from="1543077698913" duration="5323000" />
       <workItem from="1543940268052" duration="265000" />
-      <workItem from="1544277612276" duration="6041000" />
+      <workItem from="1544277612276" duration="11580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142101000" />
+    <option name="totallyTimeSpent" value="147640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49836066" visible="true" weight="0.27987897" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49836066" visible="true" weight="0.27987897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -680,7 +681,7 @@
       <window_info id="Web" order="7" sideWeight="0.50163937" side_tool="true" weight="0.27987897" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28032786" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44918033" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -806,13 +807,6 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
@@ -1073,8 +1067,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="255">
+          <caret line="77" column="54" lean-forward="true" selection-start-line="77" selection-start-column="54" selection-end-line="77" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/beans/RandomMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="37" column="34" lean-forward="true" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
